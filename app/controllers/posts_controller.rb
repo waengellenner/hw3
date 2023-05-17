@@ -1,14 +1,5 @@
 class PostsController < ApplicationController
 
-#  def index
-#    @posts = Post.all
-#  end
-
-  def show
-    @post = Post.find_by({"id" => params["id"]})
-    @place = Place.find_by({"id" => @post["place_id"]})
-  end
-
   def new
     @post = Post.new
     # render contacts/new view with new Contact form
@@ -25,10 +16,8 @@ class PostsController < ApplicationController
 
     @post["place_id"] = params["post"]["place_id"]
 
-    # save Contact row
     @post.save
 
-    # redirect user
     redirect_to "/places/#{@post["place_id"]}"
   end
 
