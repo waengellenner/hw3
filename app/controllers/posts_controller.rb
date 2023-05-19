@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # render contacts/new view with new Contact form
+    
     @post["place_id"] = params["place_id"]
   end
 
